@@ -137,7 +137,7 @@ Since StuffMap collects no data, any future changes are unlikely to expand data 
 
 If you have any questions about this Privacy Policy or the StuffMap app, you can contact us at:
 
-**Email:** mohamedgad.gm@gmail.com
+**Email:** info@oldalexhub.com
 
 ---
 
