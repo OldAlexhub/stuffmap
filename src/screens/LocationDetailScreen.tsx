@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import {
   View, Text, FlatList, TouchableOpacity, StyleSheet,
-  Alert, StatusBar,
+  Alert,
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useNavigation, useRoute, RouteProp } from '@react-navigation/native';
@@ -58,8 +58,6 @@ const LocationDetailScreen: React.FC = () => {
 
   return (
     <View style={[styles.container, { backgroundColor: bg }]}>
-      <StatusBar backgroundColor={location.color} barStyle="light-content" />
-
       {/* Header */}
       <View style={[styles.header, { paddingTop: insets.top, backgroundColor: location.color }]}>
         <View style={styles.headerRow}>

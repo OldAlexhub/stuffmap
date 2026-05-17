@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import {
   View, Text, ScrollView, StyleSheet, TouchableOpacity,
-  StatusBar, Image,
+  Image,
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
@@ -48,12 +48,9 @@ const HomeScreen: React.FC = () => {
   };
 
   const bg = dark ? Colors.backgroundDark : Colors.background;
-  const cardBg = dark ? Colors.surfaceDark : Colors.surface;
 
   return (
     <View style={[styles.container, { backgroundColor: bg }]}>
-      <StatusBar backgroundColor={Colors.primary} barStyle="light-content" />
-
       {/* Header */}
       <View style={[styles.header, { paddingTop: insets.top + Spacing.md }]}>
         <View style={styles.headerTop}>

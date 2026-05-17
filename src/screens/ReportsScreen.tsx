@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import {
   View, Text, TouchableOpacity, ScrollView, StyleSheet,
-  Alert, StatusBar, ActivityIndicator, Switch,
+  Alert, ActivityIndicator, Switch,
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import RNFS from 'react-native-fs';
@@ -148,7 +148,6 @@ const ReportsScreen: React.FC = () => {
 
   return (
     <View style={[styles.container, { backgroundColor: bg }]}>
-      <StatusBar backgroundColor={Colors.primary} barStyle="light-content" />
       <View style={[styles.header, { paddingTop: insets.top + Spacing.md }]}>
         <Text style={styles.headerTitle}>Reports</Text>
         <Text style={styles.headerSub}>Export your inventory</Text>

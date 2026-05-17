@@ -3,6 +3,7 @@ import { Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { RootStackParamList, BottomTabParamList } from '../types';
 import { Colors, Typography } from '../theme';
 
@@ -32,6 +33,10 @@ const TAB_ICONS: Record<string, { active: string; inactive: string }> = {
 };
 
 const MainTabs: React.FC = () => {
+  const insets = useSafeAreaInsets();
+  const bottomInset = Math.max(insets.bottom, 0);
+  const tabBarBaseHeight = 60;
+
   return (
     <Tab.Navigator
       screenOptions={({ route }) => ({
@@ -39,8 +44,8 @@ const MainTabs: React.FC = () => {
         tabBarStyle: {
           backgroundColor: Colors.primary,
           borderTopWidth: 0,
-          height: 60,
-          paddingBottom: 6,
+          height: tabBarBaseHeight + bottomInset,
+          paddingBottom: bottomInset > 0 ? bottomInset : 6,
           paddingTop: 4,
           elevation: 12,
         },
@@ -50,7 +55,7 @@ const MainTabs: React.FC = () => {
           fontSize: Typography.fontSizeXS,
           fontWeight: Typography.fontWeightSemiBold,
         },
-        tabBarIcon: ({ focused, color }) => {
+        tabBarIcon: ({ focused }) => {
           const icons = TAB_ICONS[route.name];
           return (
             <View style={{ alignItems: 'center', justifyContent: 'center' }}>

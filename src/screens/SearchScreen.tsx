@@ -1,13 +1,13 @@
 import React, { useState, useMemo } from 'react';
 import {
-  View, Text, FlatList, StyleSheet, StatusBar, TouchableOpacity,
+  View, Text, FlatList, StyleSheet,
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../types';
 import { useStorage } from '../storage/StorageContext';
-import { Colors, Typography, Spacing, BorderRadius } from '../theme';
+import { Colors, Typography, Spacing } from '../theme';
 import SearchBar from '../components/SearchBar';
 import ItemCard from '../components/ItemCard';
 import EmptyState from '../components/EmptyState';
@@ -71,7 +71,6 @@ const SearchScreen: React.FC = () => {
 
   return (
     <View style={[styles.container, { backgroundColor: bg }]}>
-      <StatusBar backgroundColor={Colors.primary} barStyle="light-content" />
       <View style={[styles.header, { paddingTop: insets.top + Spacing.md }]}>
         <Text style={styles.headerTitle}>Search</Text>
         <SearchBar

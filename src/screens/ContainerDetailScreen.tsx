@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import {
   View, Text, FlatList, TouchableOpacity, StyleSheet,
-  Alert, StatusBar, Image,
+  Alert, Image,
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useNavigation, useRoute, RouteProp } from '@react-navigation/native';
@@ -11,19 +11,16 @@ import { useStorage } from '../storage/StorageContext';
 import { Colors, Typography, Spacing, BorderRadius, Shadows } from '../theme';
 import ItemCard from '../components/ItemCard';
 import EmptyState from '../components/EmptyState';
-import TagBadge from '../components/TagBadge';
 
 type Nav = NativeStackNavigationProp<RootStackParamList>;
 type Route = RouteProp<RootStackParamList, 'ContainerDetail'>;
-
-const IMPORTANCE_COLORS = { low: Colors.importanceLow, medium: Colors.importanceMedium, high: Colors.importanceHigh };
 
 const ContainerDetailScreen: React.FC = () => {
   const insets = useSafeAreaInsets();
   const navigation = useNavigation<Nav>();
   const route = useRoute<Route>();
   const { containerId, locationId } = route.params;
-  const { state, getContainerById, getLocationById, getItemsForContainer, deleteContainer, deleteItem } = useStorage();
+  const { state, getContainerById, getLocationById, getItemsForContainer, deleteContainer } = useStorage();
   const dark = state.settings.darkMode;
 
   const container = getContainerById(containerId);
@@ -58,19 +55,10 @@ const ContainerDetailScreen: React.FC = () => {
     );
   };
 
-  const handleDeleteItem = (itemId: string, itemName: string) => {
-    Alert.alert('Delete Item', `Delete "${itemName}"?`, [
-      { text: 'Cancel', style: 'cancel' },
-      { text: 'Delete', style: 'destructive', onPress: () => deleteItem(itemId) },
-    ]);
-  };
-
   const bg = dark ? Colors.backgroundDark : Colors.background;
 
   return (
     <View style={[styles.container, { backgroundColor: bg }]}>
-      <StatusBar backgroundColor={accent} barStyle="light-content" />
-
       {/* Header */}
       <View style={[styles.header, { paddingTop: insets.top, backgroundColor: accent }]}>
         <View style={styles.headerRow}>

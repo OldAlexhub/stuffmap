@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import {
   View, Text, TextInput, TouchableOpacity, ScrollView,
-  StyleSheet, Alert, StatusBar, KeyboardAvoidingView, Platform,
+  StyleSheet, Alert, KeyboardAvoidingView, Platform,
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useNavigation, useRoute, RouteProp } from '@react-navigation/native';
@@ -71,8 +71,6 @@ const AddEditLocationScreen: React.FC = () => {
       behavior={Platform.OS === 'ios' ? 'padding' : undefined}
     >
       <View style={[styles.container, { backgroundColor: bg }]}>
-        <StatusBar backgroundColor={selectedColor} barStyle="light-content" />
-
         {/* Header */}
         <View style={[styles.header, { paddingTop: insets.top, backgroundColor: selectedColor }]}>
           <View style={styles.headerRow}>

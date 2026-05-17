@@ -3,9 +3,6 @@
     <!-- Camera for taking photos of containers/items -->
     <uses-permission android:name="android.permission.CAMERA" />
 
-    <!-- Read media images (Android 13+) -->
-    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
-
     <!-- Legacy external storage read (Android 12 and below) -->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
         android:maxSdkVersion="32" />
