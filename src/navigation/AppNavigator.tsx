@@ -8,7 +8,6 @@ import { RootStackParamList, BottomTabParamList } from '../types';
 import { Colors, Typography } from '../theme';
 
 // Screens
-import SplashScreen        from '../screens/SplashScreen';
 import HomeScreen          from '../screens/HomeScreen';
 import LocationsScreen     from '../screens/LocationsScreen';
 import LocationDetailScreen  from '../screens/LocationDetailScreen';
@@ -80,10 +79,9 @@ const AppNavigator: React.FC = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="Splash"
+        initialRouteName="MainTabs"
         screenOptions={{ headerShown: false, animation: 'fade' }}
       >
-        <Stack.Screen name="Splash"     component={SplashScreen} options={{ animation: 'none' }} />
         <Stack.Screen name="MainTabs"   component={MainTabs} />
         <Stack.Screen
           name="LocationDetail"

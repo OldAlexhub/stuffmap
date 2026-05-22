@@ -51,7 +51,6 @@ export interface SearchResult {
 export type ImportanceLevel = 'low' | 'medium' | 'high';
 
 export type RootStackParamList = {
-  Splash: undefined;
   MainTabs: undefined;
   LocationDetail: { locationId: string };
   ContainerDetail: { containerId: string; locationId: string };
